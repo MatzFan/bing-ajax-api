@@ -1,5 +1,6 @@
 require 'sinatra'
 
-get '/' do
-  'Hello world'
+get '/map' do
+  @coords = 0
+  erb :map
 end
