@@ -10,12 +10,18 @@
 
          function GetMap()
          {
-            var map = new Microsoft.Maps.Map(document.getElementById('mapDiv'), {credentials:'AutjcX00ethCZF2CQURexruteEwuFxvWJ6BVywEvyDv5BIaOO3vfhrH59O_rnLFd'});
+            var mapOptions = {
+              credentials:'AutjcX00ethCZF2CQURexruteEwuFxvWJ6BVywEvyDv5BIaOO3vfhrH59O_rnLFd',
+              center: new Microsoft.Maps.Location(49.21042016382462, -2.1445659365234615),
+              zoom: 12,
+              mapTypeId: Microsoft.Maps.MapTypeId.aerial
+            }
+            var map = new Microsoft.Maps.Map(document.getElementById('mapDiv'), mapOptions);
          }
 
       </script>
    </head>
    <body onload='GetMap();'>
-      <div id='mapDiv' style='position:absolute; width:400px; height:400px;'></div>
+      <div id='mapDiv' style='position:absolute; width:800px; height:500px;'></div>
    </body>
 </html>
