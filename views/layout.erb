@@ -11,7 +11,7 @@
 
     <script type='text/javascript'>
 
-      function GetMap(lat, lng)
+      function GetMap(coords)
       {
         var mapOptions = {
           credentials:'AutjcX00ethCZF2CQURexruteEwuFxvWJ6BVywEvyDv5BIaOO3vfhrH59O_rnLFd',
@@ -20,6 +20,9 @@
           mapTypeId: Microsoft.Maps.MapTypeId.aerial
         };
         var map = new Microsoft.Maps.Map(document.getElementById('mapDiv'), mapOptions);
+        var locations = new Microsoft.Maps.EntityCollection();
+        var lat = coords[0];
+        var lng = coords[1];
         var loc = new Microsoft.Maps.Location(lat, lng);
         var pin = new Microsoft.Maps.Pushpin(loc, {text: 'A'});
         map.entities.push(pin);
@@ -32,9 +35,8 @@
 
     <script type='text/javascript'>
       window.onload = function() {
-        var serverLat = gon.lat;
-        var serverLong = gon.lng;
-        GetMap(serverLat, serverLong);
+        var serverLocation = gon.plot_location;
+        GetMap(serverLocation);
       };
     </script>
 
